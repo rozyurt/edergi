@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> CEVRIMICI UNIVERSITE DERGISI</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!-- Le styles -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- main-bar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">e-dergi</a>
+          <ul class="nav">
+            <form class="navbar-search pull-left" action="/search"><input name="wanted" type="text" class="search-query span2" placeholder="Search"></form>
+
+            <li><a href="/">Ana Sayfa</a></li>
+            <li><a href="/about">Hakkında</a></li>
+            <li><a href="/contact">İletişim</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <% if session[:admin] %>
+              <li><a href="/admin/new_record">Yeni Kayıt</a></li>
+              <li><a href="/admin">Yönetim</a></li>
+              <li><a href="/admin/support">Yardım</a></li>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:admin] %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/admin/personal">Kişisel Bilgilerim</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin/logout">Çıkış</a></li>
+              </ul>
+              </li>
+            <% elsif session[:institute] %>
+              <li><a href="/institute/support">Yardım</a></li>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:instituteinfo][:email] %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/institute/">Kurum Sayfası</a></li>
+                <li class="divider"></li>
+                <li><a href="/institute/logout">Çıkış</a></li>
+              </ul>
+              </li>
+            <% elsif session[:user] %>
+              <li><a href="/user/support">Yardım</a></li>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:userinfo][:email] %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/user/">Donör Sayfası</a></li>
+                <li class="divider"></li>
+                <li><a href="/user/logout">Çıkış</a></li>
+              </ul>
+              </li>
+            <% else %>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giriş Yap<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/user">Üye Girisi</a></li>
+                <li class="divider"></li>
+                <li><a href="/institute">Moderatör Girisi</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin">Admin Girisi</a></li>
+              </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 80px;" >
+
+      <div class="content">
+        <div class="row">
+          <div class="span9">
+            <% [:notice, :error, :success, :info].each do |level| %>
+              <% unless flash[level].blank? %>
+                <div data-alert="alert" class="alert alert-<%= level %> fade in">
+                  <a class="close" data-dismiss="alert" href="#">&times;</a>
+                  <%= content_tag :p, simple_format(flash[level]) %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%= yield %>
+
+    </div><!-- /container -->
+
+    <!-- footer -->
+    <div class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li><a href="/">CEVRIMICI UNIVERSITE DERGISI&copy; <%= Time.now.year %> </a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="/about">Hakkında</a></li>
+            <li><a href="/contact">İletişim</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /footer -->
+
+  </body>
+</html>
