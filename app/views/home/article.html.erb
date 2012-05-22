@@ -1,0 +1,26 @@
+<div class="span8">
+	<% Article.all.each do |article| %>
+		<table class="table table-bordered">
+			<thead>
+				<th>
+					<%= article.article_name %>
+				</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<%= article.article_content %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+	<% end %>
+
+</div>
+<div class="span3">
+	<p>en çok okunanlar</p>
+	<br />
+	<br />
+	<p>en yüksek puan alanlar</p>
+</div>

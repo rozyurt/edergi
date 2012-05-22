@@ -21,7 +21,7 @@
           <ul class="nav">
             <form class="navbar-search pull-left" action="/search"><input name="wanted" type="text" class="search-query span2" placeholder="Search"></form>
 
-            <li><a href="/">Ana Sayfa</a></li>
+            <li><a href="/article">Makaleler</a></li>
             <li><a href="/about">Hakkında</a></li>
             <li><a href="/contact">İletişim</a></li>
           </ul>
@@ -38,33 +38,36 @@
                 <li><a href="/admin/logout">Çıkış</a></li>
               </ul>
               </li>
-            <% elsif session[:institute] %>
-              <li><a href="/institute/support">Yardım</a></li>
+            <% elsif session[:moderator] %>
+              <li><a href="/moderator/support">Yardım</a></li>
               <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:instituteinfo][:email] %><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/institute/">Kurum Sayfası</a></li>
+                <li><a href="/moderator/">Moderator Sayfası</a></li>
                 <li class="divider"></li>
-                <li><a href="/institute/logout">Çıkış</a></li>
+                <li><a href="/moderator/logout">Çıkış</a></li>
               </ul>
               </li>
             <% elsif session[:user] %>
               <li><a href="/user/support">Yardım</a></li>
               <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:userinfo][:email] %><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/user/">Donör Sayfası</a></li>
+                <li><a href="/user/">Kullanıcı Sayfası</a></li>
                 <li class="divider"></li>
                 <li><a href="/user/logout">Çıkış</a></li>
               </ul>
               </li>
             <% else %>
+              <li>
+              <a href="/home/new_member">Kayıt Ol</a>
+              </li>
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giriş Yap<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/user">Üye Girisi</a></li>
                 <li class="divider"></li>
-                <li><a href="/institute">Moderatör Girisi</a></li>
+                <li><a href="/moderator">Moderatör Girisi</a></li>
                 <li class="divider"></li>
                 <li><a href="/admin">Admin Girisi</a></li>
               </ul>

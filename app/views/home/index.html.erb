@@ -1,2 +1,36 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span8"><br />
+			<div class="line">
+				<br /><br /><h2>makale oku</h2><br /><br />
+			</div>
+			<div class="line">
+				<br /><br /><h2>makale yaz</h2><br /><br />
+			</div>
+			<div class="line">
+				<br /><br /><h2>akademik gelişmeler</h2><br /><br />
+			</div>
+		</div>
+		<div class="span4">
+			<form action="/user/sign_in" method="post" class="well">
+				<input type="text" class="input-large" placeholder="Email" id="input03" name="email">
+				<input type="password" class="input-large" placeholder="Parola" id="input02" name="password">
+				<label class="checkbox">
+					<input type="checkbox"> Beni Hatırla
+				</label>
+				<button type="submit" class="btn btn-inverse">Giriş Yap</button>
+			</form>
+			<form action="/yeni_kayit_save" method="post" class="well">
+				<legend>Kayıt Ol!</legend>
+				<input type="text" class="input-large" placeholder="İsim" id="input03" name="first_name">
+				<input type="text" class="input-large" placeholder="Soyisim" id"input03" name="last_name">
+				<input type="text" class="input-large required email" placeholder="Email" id="input03" name="email">
+				<input type="password" class="input-large" placeholder="Parola" id="input02" name="password">
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Kayıt Ol</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>

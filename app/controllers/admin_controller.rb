@@ -36,7 +36,7 @@ class AdminController < ApplicationController
   end
 
   def new_record_save
-    user = User.new({ :first_name => params[:first_name], :email => params[:email], :password => params[:password] })
+    user = User.new({ :first_name => params[:first_name], :last_name => params[:last_name], :email => params[:email], :password => params[:password] })
     if user.save
       flash[:notice] = "Kayıt Yapıldı"
       session[:admin] = user[:id]
