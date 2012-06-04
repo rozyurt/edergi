@@ -19,6 +19,7 @@ e-mail: rozyurt@bil.omu.edu.tr
 şifre : 123456
 
 - Kullanıcı Girişi:
-Ön tanımlı bir kullanıcı yok. Kayıt Olunup Girilebilir.
+Ön tanımlı bir kullanıcı yok. Ana Sayfaki Kayıt Ol butonuna tıklayınca açılan
+sayfadan kayıt olunup girilebilir.
 
 =====
