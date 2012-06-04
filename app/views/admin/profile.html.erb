@@ -1,0 +1,73 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span3">
+			<ul class="nav nav-list">
+				<li class="nav-header">Genel</li>
+				<li>
+				<a href="/article">
+					<i class="icon-home"></i>
+					Ana Sayfa
+				</a>
+				</li>
+				<li>
+				<a href="/admin">
+					<i class="icon-briefcase"></i>
+					Yönetici Sayfası
+				</a>
+				</li>
+				<li>
+				<a href="#">
+					<i class="icon-th"></i>
+					Kullanıcılar
+				</a>
+				</li>
+				<li class="nav-header">Kullanıcı</li>
+				<li>
+				<a href="/admin/profile">
+					<i class="icon-user"></i>
+					Profil
+				</a>
+				</li>
+
+				<li>
+				<a href="#">
+					<i class="icon-wrench"></i>
+					Ayarlar
+				</a>
+				</li>
+			</ul>
+		</div>
+		<div class="span8">
+			<form action="/admin/profile_save" method="post" class="form-horizontal" >
+				<div class="control-group">
+					<label class="control-label" for="input02">Adı (*)</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge required" id="input02" name="first_name" value="Rauf">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input03">Soyadı (*)</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge required" id="input03" name="last_name" value="Özyurt">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input14">E-mail (*)</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge required email" id="input14" name="email" value="rozyurt@bil.omu.edu.tr">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input11">Şifre</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="input11" name="password" value="">
+					</div>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Bilgilerimi Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

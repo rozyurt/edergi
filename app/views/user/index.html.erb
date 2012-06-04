@@ -1,26 +1,55 @@
 <div class="container-fluid">
 	<div class="row-fluid">
-			<div class="span2">
-				<a href="/user/new_paper">makale ekle</a>
-			</div>
-			<div class="span8">
-				<% Article.all.each do |article| %>
-					<table class="table table-bordered">
-						<thead>
-							<th>
-								<%= article.article_name %>
-							</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<%= article.article_content %>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<br />
-				<% end %>
-			</div>
+		<div class="span3">
+			<ul class="nav nav-list">
+				<li class="nav-header">Genel</li>
+				<li>
+				<a href="/article">
+					<i class="icon-home"></i>
+					Ana Sayfa
+				</a>
+				</li>
+
+				<li>
+				<a href="/user/new_paper">
+					<i class="icon-book"></i>
+					Makale Ekle
+				</a>
+				</li>
+				<li class="nav-header">Kullanıcı</li>
+				<li>
+				<a href="#">
+					<i class="icon-user"></i>
+					Profil
+				</a>
+				</li>
+
+				<li>
+				<a href="#">
+					<i class="icon-wrench"></i>
+					Ayarlar
+				</a>
+				</li>
+			</ul>
+		</div>
+		<div class="span8">
+			<% Article.all.each do |article| %>
+				<table class="table table-bordered">
+					<thead>
+						<th>
+							<%= article.article_name %>
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<%= article.article_content %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br />
+			<% end %>
+		</div>
 	</div>
 </div>

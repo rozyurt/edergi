@@ -31,5 +31,26 @@ class ModeratorController < ApplicationController
     redirect_to '/moderator/login'
   end
 
+  def personal
+    @pagetitle = "Kişisel Bilgiler"
+  end
+
+  def personal_save
+    moderator = Moderator.update(session[:moderator][:id], {
+      :first_name => params[:first_name],
+      :last_name => params[:last_name],
+      :email => params[:email],
+      :password => params[:password],
+    })
+
+    if moderator.save
+      session[:moderator] = moderator
+      flash[:notice] = "Bilgileriniz Güncellenmiştir."
+    else
+      flash[:error] = "Bilgileriniz Güncellenemedi."
+    end
+    redirect_to '/moderator/profile'
+  end
+
 
 end

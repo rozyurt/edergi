@@ -8,6 +8,8 @@ Dergi::Application.routes.draw do
 
   get "home/new_member"
 
+  get "admin/support"
+
   root :to => 'home#index'
 
   match "home" => "home#index"
@@ -38,4 +40,10 @@ Dergi::Application.routes.draw do
 
   get  "home/new_member"
   post "home/new_member_save"
+
+  get  "admin/profile"
+  post "admin/profile_save"
+
+  get  "moderator/personal"
+  post "moderator/personal_save"
 end
