@@ -8,6 +8,11 @@ dergi
 - Ali Uslucan
 - Dursun Ali Gürsal
 
+**Rapor**
+
+/src dizini altında gereksinim ve kullanım raporları ayrıntılı şekilde
+verilmiştir.
+
 **Ön Tanımlı Kullanıcılar**
 
 - Moderatör Girişi:
