@@ -46,4 +46,25 @@ class AdminController < ApplicationController
     redirect_to '/admin/new_record'
   end
 
+  def profile
+    @pagetitle = "Kişisel Bilgiler"
+  end
+
+  def profile_save
+    admin = Admin.update(session[:admin][:id], {
+      :first_name => params[:first_name],
+      :last_name => params[:last_name],
+      :email => params[:email],
+      :password => params[:password],
+    })
+
+    if admin.save
+      session[:admininfo] = admin
+      flash[:notice] = "Bilgileriniz Güncellenmiştir."
+    else
+      flash[:error] = "Bilgileriniz Güncellenemedi."
+    end
+    redirect_to '/admin/profile'
+  end
+
 end
